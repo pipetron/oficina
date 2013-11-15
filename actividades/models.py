@@ -1,14 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-import os
-import ho.pisa as pisa
-import cStringIO as StringIO
-
-from django.template.loader import render_to_string
 from django.db import models
-
-from cmisutils.cmis import CMISConnector
-from settings import CMIS_URL, CMIS_USER, CMIS_PWD, RESERVAS_FOLDER_ID
 from tinymce.models import HTMLField
 
 # Create your models here.
