@@ -11,7 +11,7 @@ from django.template import RequestContext
 from general.models import Banner
 from general.forms import ContactoForm
 from documentos.models import Documento
-from settings import *
+from oficina.settings import *
 
 def inicio(request):
     """

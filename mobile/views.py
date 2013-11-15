@@ -8,7 +8,7 @@ from mobile.forms import RutaForm
 from general.forms import ContactoForm
 from general.models import Banner
 from documentos.models import Documento
-from settings import *
+from oficina.settings import *
 
 def inicio(request):
     parametros = {'inicio':True}
