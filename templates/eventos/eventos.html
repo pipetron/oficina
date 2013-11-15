@@ -1,0 +1,33 @@
+{% extends "plantillas/principal.html" %}
+
+{% block estilos_adicionales %}
+  <link rel="stylesheet" type="text/css" href="/site_media/css/eventos/eventos.css"/>
+{% endblock %}
+
+{% block contenido %}
+  <div id="banner">
+    <img src="/site_media/img/baner_inter_2.jpg" width="100%" height="175px"/>
+  </div>
+  <div id="titulo-seccion">Eventos</div>
+  <div id="eventos">
+    {% for evento in eventos_obj %}
+      <div class="evento{% if forloop.counter|divisibleby:3 %} evento-ultimo{% endif %}">
+        <div class="titulo-evento"><p>{{ evento.titulo }}</p></div>
+        <div class="img-evento"><img src="{{ evento.imagen.url }}" width="100%" height="120px"></div>
+        <div class="info-evento">
+          <div class="descripcion-evento">
+            <p>{{ evento.descripcion|truncatechars:100 }}</p>
+            <a href="{% url evento_detail evento.id %}">m&aacute;s info</a>
+          </div>
+          <div class="fecha-evento">
+            <div class="fecha-widget">
+              <span class="dia-evento">{{ evento.fecha.day }}</span>
+              <span class="mes-evento">{{ evento.fecha|date:"M" }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div id="titulo-oficina"><span>Oficina Municipal de Turismo Olvera</span></div>
+{% endblock %}

@@ -1,0 +1,57 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>{% block titulo %}{% endblock %}</title> 
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <link rel="stylesheet" href="/site_media/css/mobile/oficina.min.css" />
+	<link rel="stylesheet" href="/site_media/css/mobile/jquery.mobile-1.2.0.min.css" />
+	{% block estilos %}{% endblock %}
+	<script src="/site_media/js/jquery-1.8.2.min.js"></script>
+	<script src="/site_media/js/jquery.mobile-1.2.0.min.js"></script>
+	<script type="text/javascript">
+        $.mobile.ajaxEnabled = false;
+        $.mobile.selectmenu.prototype.options.nativeMenu = false;
+    </script>
+	{% block javascript %}{% endblock %}
+</head> 
+<body> 
+
+<div id="mobile-page" data-role="page">
+
+	<div data-role="header" data-theme="a" data-position="fixed">
+	    {% block back %}{% endblock %}
+		<h1>Oficina de Turismo de Olvera</h1>
+		<div data-role="navbar">
+	    <ul>
+	      <li>
+	        <a href="{% url inicio_mobile %}" {% if inicio %}data-theme="e"{% endif %} data-icon="home">Inicio</a>
+	      </li>
+	      <li>
+	        <a href="{% url galeria_mobile %}" {% if galeria %}data-theme="e"{% endif %} data-icon="grid">Galería</a>
+	      </li>
+	      <li>
+	        <a href="/mobile/rutas/" {% if rutas %}data-theme="e"{% endif %} data-icon="gear">Rutas</a>
+	      </li>
+	      <li>
+	        <a href="{% url contacto_mobile %}" {% if contacto %}data-theme="e"{% endif %} data-icon="star">Contacto</a>
+	      </li>
+	    </ul>
+	  </div>
+	</div><!-- /header -->
+
+	<div data-role="content" data-theme="d" height="100%">
+	  
+	  {% block contenido %}
+	    <p>Page content goes here.</p>
+	  {% endblock %} 		
+	</div><!-- /content -->
+
+	<div data-role="footer" style="height:15px;">
+		
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+</body>
+</html>

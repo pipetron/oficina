@@ -1,0 +1,54 @@
+{% extends "mobile/plantilla_mobile.html" %}
+
+{% block estilos %}
+  <link rel="stylesheet" href="/site_media/css/mobile/contacto.css" />
+{% endblock %}
+
+{% block javascript %}
+  <script type="text/javascript">
+    $(document).ready(function(){
+      {% if contacto_ok %}
+      setTimeout( function(){ $(".contacto-ok").popup('open',{ positionTo:'window'}); }, 500 );
+      
+      $( ".contacto-ok" ).bind({
+    	   popupafteropen: function(event, ui) {
+    		   setTimeout( function(){ $(".contacto-ok").popup('close'); }, 1500 );
+    	   }
+      });
+      
+      {% endif %}
+    });
+  </script>
+{% endblock %}
+
+{% block contenido %}
+  <div id="mobile-contact">
+    <h2 class="titulo-contacto">Datos de contacto</h2>
+    <div id="info-contacto">
+      <p>Oficina de Turismo de Olvera</p>
+      <p>Plaza de la Iglesia, s/n - 11690 Olvera</p>
+      <p><b><a href="tel:+34956120816">Telf. 956 120816</a> | fax 956 120816</b></p>
+      <p><a href="mailto:info@turismoolvera.com">Enviar correo</a> | <a href="skype:turismoolvera">Skype</a></p>
+    </div>
+    <div data-role="collapsible" {% if contacto_ko %}data-collapsed="false"{% endif %}>
+      <h2>Formulario</h2>
+      <form method="post" action="">
+        {% csrf_token %}
+        {% for field in form %}
+          <div class="mobile-contact-field" data-role="fieldcontain">
+            {{ field.label_tag }}
+            {{ field }}
+            {% if field.errors %}
+                {{ field.errors }}
+            {% endif %}
+          </div>
+        {% endfor %}
+        <button type="submit" data-theme="e" name="enviar" value="Enviar" class="ui-btn-hidden" aria-disabled="false">Enviar</button>
+      </form>
+    </div>
+    <div class="contacto-ok" data-role="popup" data-theme="e" data-overlay-theme="a">
+      <p>Formulario enviado con &eacute;xito</p>
+    </div>
+  </div>
+
+{% endblock %} 

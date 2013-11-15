@@ -1,0 +1,73 @@
+{% extends "plantillas/principal.html" %}
+
+{% block estilos_adicionales %}
+  <link rel="stylesheet" type="text/css" href="/site_media/css/eventos/evento_detail.css"/>
+{% endblock %}
+
+{% block javascript %}
+  <script type="text/javascript" src="/site_media/js/jquery-1.8.2.min.js"></script>
+{% endblock %}
+
+{% block contenido %}
+  <div id="banner">
+    <img src="/site_media/img/baner_inter_2.jpg" width="100%" height="175px"/>
+  </div>
+  <div id="titulo-seccion">Eventos</div>
+  <div id="evento-detail">
+    <div id="evento-detail-left">
+      <div id="div-titulo-evento">
+        <h3>{{ evento.titulo }}</h3>
+        <p>{{ evento.descripcion }}</p>
+      </div>
+      <div id="evento-contenido">
+        {{ evento.contenido|safe }}
+      </div>
+    </div>
+    <div id="evento-detail-right">
+      <div id="evento-fecha">
+        <span class="titulo-right-evento">Fecha</span>
+        <div class="fecha-widget">
+	      <span class="dia-evento">{{ evento.fecha.day }}</span>
+          <span class="mes-evento">{{ evento.fecha|date:"M" }}</span>
+        </div>
+      </div>
+      {% if evento.programacion %}
+        <div id="evento-programacion">
+          <span class="titulo-right-evento">Programaci&oacute;n</span>
+          {% for programa in evento.programacion %}
+            <div class="evento-programa">
+              <span class="evento-programa-hora">{{ programa.hora }}</span>
+              <p>{{ programa.titulo }}</p>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+  <div id="titulo-oficina"><span>Oficina Municipal de Turismo Olvera</span></div>
+  <script type="text/javascript">
+    	
+   	//inserta imagen de evento despues del segundo parrafo
+   	var img_element = "<img class='img-detail' src='" + "{{ evento.imagen.url }}" + "' />"
+   	var p_elements = $("#evento-contenido").children("p").length;
+   	var index = 1;
+   	if (p_elements >= 2){
+   		index = 2;
+   	}
+   	
+   	var p_element = $("#evento-contenido").children("p:nth-child("+index+")");
+   	p_element.addClass("p-img");
+   	p_element.after(img_element);
+    	
+  </script>
+  <script>
+    //iguala alturas de parte izq. y derecha.
+	var height_left = $("#evento-detail-left").height();
+	var height_right = $("#evento-detail-right").height();
+	if(height_left > height_right){
+		$("#evento-detail-right").css('height',height_left+'px');
+	}else{
+		$("#evento-detail-left").css('height',height_right+'px');
+	}
+  </script>
+{% endblock %}

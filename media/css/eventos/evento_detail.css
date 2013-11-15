@@ -1,0 +1,153 @@
+#titulo-seccion{
+	background-color:white;
+	width:100%;
+	border-bottom:1px solid #ccc;
+	color:#ffb900;
+	padding:10px 0;
+	font-size:24px;
+	text-indent: 10px;
+}
+
+#titulo-oficina{
+	background-color:white;
+	width:100%;
+	color:black;
+	padding:15px 0;
+	font-size:15px;
+	text-align:right;
+	float:left;
+}
+
+#titulo-oficina span{
+	margin-right:10px;
+}
+
+#evento-detail{
+	background-color:white;
+	width:100%;
+	float:left;
+}
+
+#div-titulo-evento{
+	float:left;
+	width:100%;
+}
+
+#div-titulo-evento h3{
+	float:left;
+	clear:both;
+	background-image:url('/site_media/img/flecha_fiestas.png');
+	background-position:left center;
+	background-repeat:no-repeat;
+	padding-left:15px;
+	margin:5px;
+}
+
+#div-titulo-evento p{
+	float:left;
+	clear:both;
+	font-size:16px;
+	padding:0 15px;
+	margin:5px;
+	text-align:justify;
+}
+
+#evento-detail-left{
+	float:left;
+	width:75%;
+	box-shadow: 0px -7px 10px -4px #ccc inset;
+}
+
+#evento-contenido{
+	float:left;
+	clear:both;
+	padding:0 15px;
+	margin:10px 5px;
+}
+
+#evento-contenido p{
+	float:left;
+	width:100%;
+	font-size:14px;
+	text-align:justify;
+}
+
+#evento-contenido p.p-img{
+	width:60%;
+}
+
+#evento-contenido .img-detail{
+	width:35%;
+	float:right;
+	margin-top:16px;
+}
+
+#evento-detail-right{
+	float:left;
+	width:25%;
+	background-color:#f7f7f7;
+	box-shadow: 0px -7px 10px -4px #ccc inset;
+}
+
+#evento-fecha{
+	float:left;
+	width:100%;
+	margin-top:10px;
+}
+
+.titulo-right-evento{
+	background-image:url('/site_media/img/flecha_fiestas1.jpg');
+	background-position:left center;
+	background-repeat:no-repeat;
+	padding-left:30px;
+	margin-left:10px;
+}
+
+.fecha-widget{
+	width:65px;
+	margin:20px auto;
+	height:50px;
+	background-color:#ffb900;
+	color:white;
+	border-radius:5px;
+}
+
+.dia-evento{
+	width:100%;
+	text-align:center;
+	font-size:22px;
+	float:left;
+}
+
+.mes-evento{
+	width:100%;
+	text-align:center;
+	font-size:16px;
+	float:left;
+}
+
+#evento-programacion{
+	float:left;
+	width:100%;
+	margin-top:10px;
+}
+
+.evento-programa{
+	margin-top:15px;
+	margin-left:10px;
+}
+
+.evento-programa-hora{
+	background-image:url('/site_media/img/flecha_amarilla.png');
+	background-position:left center;
+	background-repeat:no-repeat;
+	padding-left:7px;
+	font-size:12px;
+	font-weight:bold;
+}
+
+.evento-programa p{
+	margin:3px 0 10px 7px;;
+	margin-left:10px;
+	font-size:13px;
+}

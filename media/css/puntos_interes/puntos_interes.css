@@ -1,0 +1,131 @@
+#titulo-seccion{
+	background-color:white;
+	width:100%;
+	border-bottom:1px solid #ccc;
+	color:#ffb900;
+	padding:10px 0;
+	font-size:24px;
+	text-indent: 10px;
+}
+
+#titulo-oficina{
+	background-color:white;
+	width:100%;
+	color:black;
+	padding:15px 0;
+	font-size:15px;
+	text-align:right;
+	float:left;
+}
+
+#titulo-oficina span{
+	margin-right:10px;
+}
+
+#olvera-detail{
+	background-color:white;
+	width:100%;
+	float:left;
+}
+
+#div-titulo-olvera{
+	float:left;
+	width:100%;
+}
+
+#div-titulo-punto-interes h3{
+	float:left;
+	clear:both;
+	background-image:url('/site_media/img/flecha_fiestas.png');
+	background-position:left center;
+	background-repeat:no-repeat;
+	padding-left:15px;
+	margin:5px;
+}
+
+#div-titulo-punto-interes p{
+	float:left;
+	clear:both;
+	font-size:16px;
+	padding:0 15px;
+	margin:5px;
+	text-align:justify;
+}
+
+#olvera-detail-left{
+	float:left;
+	width:75%;
+	padding-bottom:15px;
+	box-shadow: 0px -7px 10px -4px #ccc inset;
+}
+
+#punto-interes-contenido{
+	float:left;
+	clear:both;
+	padding:0 15px;
+	margin:10px 5px;
+}
+
+#punto-interes-contenido p{
+	float:left;
+	width:100%;
+	font-size:14px;
+	text-align:justify;
+}
+
+#punto-interes-contenido p.p-img{
+	width:60%;
+}
+
+#punto-interes-contenido .img-detail{
+	width:35%;
+	float:right;
+	margin-top:16px;
+}
+
+#olvera-detail-right{
+	float:left;
+	width:25%;
+	padding-bottom:15px;
+	background-color:#f7f7f7;
+	box-shadow: 0px -7px 10px -4px #ccc inset;
+}
+
+.puntos-interes-titulo{
+	padding:10px 0 15px 10px;
+	font-size:19px;
+	float:left;
+	clear:both;
+	font-style:italic;
+}
+
+.titulo-right-olvera{
+	background-image:url('/site_media/img/flecha_fiestas1.jpg');
+	background-position:left top;
+	background-repeat:no-repeat;
+	text-indent:30px;
+	margin:0 0 0 10px;
+	line-height:23px;
+}
+
+#puntos-interes{
+	float:left;
+	width:100%;
+	margin-top:10px;
+}
+
+.punto-interes{
+	padding:10px 0;
+	cursor:pointer;
+}
+
+.punto-seleccionado{
+	background-color:#ffb900;
+	color:white;
+}
+
+.descripcion-punto{
+	margin:3px 0 10px 7px;;
+	margin-left:10px;
+	font-size:13px;
+}

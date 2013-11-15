@@ -1,0 +1,53 @@
+<div id="reserva-form">
+  <form>
+    <div class="reserva-form-field" id="reserva-form-inicio">
+      {{ form.fecha_inicio.label_tag }}
+      {{ form.fecha_inicio }}
+      {% if form.fecha_inicio.errors %}
+        <p class="form-error">Fecha incorrecta</p>
+      {% endif %}
+    </div>
+    <div class="reserva-form-field" id="reserva-form-fin">
+      {{ form.fecha_fin.label_tag }}
+      {{ form.fecha_fin }}
+      {% if form.fecha_fin.errors %}
+        <p class="form-error">Fecha incorrecta</p>
+      {% endif %}
+    </div>
+    <div class="reserva-form-field" id="reserva-form-nombre">
+      {{ form.nombre.label_tag }}
+      {{ form.nombre }}
+      {% if form.nombre.errors %}
+        <p class="form-error">Campo obligatorio</p>
+      {% endif %}
+    </div>
+    <div class="reserva-form-field" id="reserva-form-correo">
+      {{ form.correo.label_tag }}
+      {{ form.correo }}
+      {% if form.correo.errors %}
+        <p class="form-error">Correo incorrecto</p>
+      {% endif %}
+    </div>
+    <div class="reserva-form-field" id="reserva-form-telefono">
+      {{ form.telefono.label_tag }}
+      {{ form.telefono }}
+      {% if form.telefono.errors %}
+        <p class="form-error">Campo obligatorio</p>
+      {% endif %}
+    </div>
+    <div class="reserva-form-field" id="reserva-form-info">
+      {{ form.informacion.label_tag }}
+      {{ form.informacion }}
+      {% if form.informacion.errors %}
+        <p class="form-error">Campo obligatorio</p>
+      {% endif %}
+    </div>
+    <input type="hidden" name="actividad" value="{{ actividad.id }}">
+    <input type="submit" value="Reservar" class="submit-form">
+    <img id="loader" alt="Enviando..." src="/site_media/img/ajax-loader.gif">
+  </form>
+</div>
+<script>
+  $("#id_fecha_inicio").datepicker();
+  $("#id_fecha_fin").datepicker();
+</script>

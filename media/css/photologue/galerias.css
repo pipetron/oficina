@@ -1,0 +1,103 @@
+#titulo-seccion{
+	background-color:white;
+	width:100%;
+	border-bottom:1px solid #ccc;
+	color:#ffb900;
+	padding:10px 0;
+	font-size:24px;
+	text-indent: 10px;
+}
+
+#titulo-oficina{
+	background-color:white;
+	width:100%;
+	color:black;
+	padding:15px 0;
+	font-size:15px;
+	text-align:right;
+	float:left;
+	border-top:1px solid #ccc;
+}
+
+#titulo-oficina span{
+	margin-right:10px;
+}
+
+#div-galerias{
+	background-color:white;
+	width:100%;
+	float:left;
+}
+
+.photo-gallery{
+	float:left;
+	width:25%;
+	margin-top:20px;
+}
+
+.photo-gallery h2{
+	margin:0 auto;
+	width:80%;
+	background-image:url('/site_media/img/flecha_fiestas1.jpg');
+	background-position:left center;
+	background-repeat:no-repeat;
+	padding-left:30px;
+	font-size:20px;
+}
+
+.photo-gallery h2 a{
+	text-decoration:none;
+	color:black;
+}
+
+.gallery-photo-example{
+	width:60%;
+	margin:10px auto;
+}
+
+.titulo-galeria{
+	float:left;
+	clear:both;
+	background-image:url('/site_media/img/flecha_fiestas.png');
+	background-position:left center;
+	background-repeat:no-repeat;
+	padding-left:15px;
+	margin:5px;
+}
+
+.photo-gallery-detail{
+	float:left;
+	width:100%;
+	margin-top:20px;
+}
+
+.descripcion-galeria{
+	float:left;
+	clear:both;
+	font-size:16px;
+	padding:0 15px;
+	margin:5px;
+	text-align:justify;
+}
+
+.gallery-photo{
+	float:left;
+	margin-left:3%;
+	width:13%;
+}
+
+.volver-galerias{
+	float:right;
+	clear:both;
+	background-image:url('/site_media/img/flecha_amarilla.png');
+	background-position:left center;
+	background-repeat:no-repeat;
+	padding-left:7px;
+	font-size:12px;
+	margin-right:15px;
+}
+
+.volver-galerias a{
+	text-decoration:none;
+	color:black;
+}

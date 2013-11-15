@@ -1,0 +1,84 @@
+{% extends "plantillas/principal.html" %}
+
+{% block estilos_adicionales %}
+  <link rel="stylesheet" type="text/css" href="/site_media/css/fiestas/fiesta_detail.css"/>
+{% endblock %}
+
+{% block javascript %}
+  <script type="text/javascript" src="/site_media/js/jquery-1.8.2.min.js"></script>
+{% endblock %}
+
+{% block contenido %}
+  <div id="banner">
+    <img src="/site_media/img/baner_inter_3.jpg" width="100%" height="175px"/>
+  </div>
+  <div id="titulo-seccion">Fiestas</div>
+  <div id="fiesta-detail">
+    <div id="fiesta-detail-left">
+      <div id="div-titulo-fiesta">
+        <h3>{{ fiesta.titulo }}</h3>
+        <p>{{ fiesta.descripcion }}</p>
+      </div>
+      <div id="fiesta-contenido">
+        {{ fiesta.contenido|safe }}
+      </div>
+    </div>
+    <div id="fiesta-detail-center">
+      <div id="fiesta-fecha">
+        <span class="titulo-right-fiesta">Fecha</span>
+        <div class="div-fecha-widgets">
+	        <div class="fecha-widget">
+		      <span class="dia-fiesta">{{ fiesta.fecha_inicio.day }}</span>
+	          <span class="mes-fiesta">{{ fiesta.fecha_inicio|date:"M" }}</span>
+	        </div>
+	        <div class="fecha-widget-black">
+		      <span class="dia-fiesta">{{ fiesta.fecha_fin.day }}</span>
+	          <span class="mes-fiesta">{{ fiesta.fecha_fin|date:"M" }}</span>
+	        </div>
+	    </div>
+      </div>
+      {% if fiesta.programacion %}
+        <div id="fiesta-programacion">
+          <span class="titulo-right-fiesta">Programaci&oacute;n</span>
+          {% for programa in fiesta.programacion %}
+            <div class="fiesta-programa">
+              <span class="fiesta-programa-hora">D&iacute;a {{ programa.fecha|date:"d" }} a las {{ programa.fecha|date:"H:i" }}</span>
+              <p>{{ programa.titulo }}</p>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+    <div id="fiesta-detail-right">
+      {% include "fiestas/proximas_fiestas.html" %}
+    </div>
+  </div>
+  <div id="titulo-oficina"><span>Oficina Municipal de Turismo Olvera</span></div>
+  <script type="text/javascript">
+    	
+   	//inserta imagen de evento despues del segundo parrafo
+   	var img_element = "<img class='img-detail' src='" + "{{ fiesta.imagen.url }}" + "' />"
+   	var p_elements = $("#fiesta-contenido").children("p").length;
+   	var index = 1;
+   	if (p_elements >= 2){
+   		index = 2;
+   	}
+   	
+   	var p_element = $("#fiesta-contenido").children("p:nth-child("+index+")");
+   	p_element.addClass("p-img");
+   	p_element.after(img_element);
+    	
+  </script>
+  <script>
+    //iguala alturas de parte izq. y derecha.
+	var height_left = $("#fiesta-detail-left").height();
+	var height_right = $("#fiesta-detail-right").height();
+	var height_center = $("#fiesta-detail-center").height();
+	var height_max = Math.max(height_left,height_center,height_right);
+	
+	$("#fiesta-detail-right").css('height',height_max+'px');
+	$("#fiesta-detail-center").css('height',height_max+'px');
+	$("#fiesta-detail-left").css('height',height_max+'px');
+	
+  </script>
+{% endblock %}

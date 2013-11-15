@@ -1,0 +1,10 @@
+{% extends "mobile/plantilla_mobile.html" %}
+
+{% block contenido %}
+  <h2>Galerias disponibles</h2>
+  <ul data-role="listview" style="margin-bottom:15px">
+    {% for galeria in galerias %}
+      <li><a href="{% url galeria_detail_mobile galeria.id %}">{{ galeria.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %} 

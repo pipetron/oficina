@@ -1,0 +1,65 @@
+{% extends "mobile/plantilla_mobile.html" %}
+
+{% block estilos %}
+  <style type="text/css">
+  html { height: 100% }
+  body { height: 100%; margin: 0px; padding: 0px }
+</style>
+{% endblock %}
+
+{% block javascript %}
+  <meta name="format-detection" content="telephone=no">
+  <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true" ></script>
+  <script type="text/javascript">
+  
+  function initialize() {
+	var myOptions = {
+	  zoom: 10,
+	  mapTypeId: google.maps.MapTypeId.ROADMAP
+	};
+    var map = new google.maps.Map(document.getElementById("map_canvas"),
+        myOptions);
+    
+    if(navigator.geolocation) {
+        browserSupportFlag = true;
+        navigator.geolocation.getCurrentPosition(function(position) {   
+        initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+        var marker = new google.maps.Marker({
+				map:map,
+				position:initialLocation
+			});
+        map.setCenter(initialLocation);
+        }, function() {
+          handleNoGeolocation(browserSupportFlag);
+        });
+    }else{
+    	var latlng = new google.maps.LatLng(37.333351,-4.576501);
+    	var marker = new google.maps.Marker({
+			map:map,
+			position:latlng
+		});
+    	map.setCenter(latlng);
+    }
+  }
+  
+  $(document).ready(function(){
+	  initialize();
+	  
+	  $("#puntos-interes input").click(function(){
+		  alert($(this).attr('title'));s
+	  })
+  });
+
+  </script>
+{% endblock %}
+
+{% block contenido %}
+  <div id="map_canvas" style="width:65%; min-height:300px;float:left;"></div>
+  <div id="puntos-interes" style="width:30%;float:left;margin-left:3%;">
+    <ul>
+    {% for punto in puntos %}
+      <li><input type="checkbox" title="{{ punto.direccion }}">{{ punto }}</li>
+    {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

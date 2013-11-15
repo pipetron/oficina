@@ -1,0 +1,14 @@
+<div id="secciones-pie">
+      {% for seccion in secciones %}
+        <div class="seccion-pie">
+          <div class="titulo-seccion">
+            <p><span>{{ seccion.titulo_es|slice:":1" }}</span>{{ seccion.titulo_es|slice:"1:" }}{% if seccion.img_titulo %}<img src="{{ seccion.img_titulo.url }}"/>{% endif %}</p>
+          </div>
+          <div class="img-seccion"><img src="{{ seccion.imagen.url }}" width="100%" /></div>
+          <div class="desc-seccion">
+            <p>{{ seccion.descripcion_es }}</p>
+            <a href="/{{ seccion.url }}">m&aacute;s info</a>
+          </div>
+        </div>
+      {% endfor %}
+</div>

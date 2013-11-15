@@ -1,0 +1,39 @@
+<!DOCTYPE html> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+  <head> 
+    <meta name="author" content="Rubén Carreño" /> 
+    <meta name="description" content="Oficina de turismo de Olvera" /> 
+    <meta name="keywords" content="Olvera, olvera, oficina de turismo, turismo, vía verde, pueblos blancos, sierra, Cádiz" /> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
+    {% block titulo %}{% endblock %}
+    
+    <script type="text/javascript">
+      if((navigator.userAgent.match(/iPhone/i)) || 
+        (navigator.userAgent.match(/iPad/i))) {
+        window.location.href = "/mobile";
+      }
+    </script>
+    {% block javascript %}{% endblock %} 
+    
+    <link rel="stylesheet" type="text/css" href="/site_media/css/globales/general.css"/>   
+    {% block estilos_adicionales %}{% endblock %}    
+    
+  </head>
+  <body>
+    <div id="cabecera">
+      {% include "plantillas/cabecera.html" %}
+    </div>
+    <div id="contenido_base">
+      <div id="contenido">
+        {% block contenido %}{% endblock %}
+      </div>
+    </div>
+    <div id="otros_enlaces_back">
+      {% include "plantillas/secciones_pie.html" %}
+    </div>
+    <div id="pie">
+      {% include "plantillas/pie.html" %}
+    </div>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+<div id="puntos-interes">
+  {% for punto in puntos_interes %}
+    <div class="punto-interes" id="punto-{{ punto.id }}">
+      <p class="titulo-right-olvera">{{ punto.titulo }}</p>
+      <p class="descripcion-punto">{{ punto.descripcion }}</p>
+    </div>
+  {% endfor %}
+</div>

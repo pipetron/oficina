@@ -1,0 +1,13 @@
+<div>
+  <ul id="enlaces">
+    <li {% if inicio %}class="seleccionada"{% endif %}><a href="{% url pagina_inicio %}">Inicio</a></li>
+    <li {% if fiestas_sel %}class="seleccionada"{% endif %}><a href="/fiestas">Fiestas</a></li>
+    <li {% if actividades %}class="seleccionada"{% endif %}><a href="/actividades">Actividades</a></li>
+    <li {% if docs %}class="seleccionada"{% endif %}><a href="{% url documentos %}">Documentos de inter&eacute;s</a></li>
+    <li {% if contacto %}class="seleccionada"{% endif %}><a href="{% url contacto %}">Contacto</a></li>
+  </ul>
+  <ul id="social">
+    <li><a href="#"><img src="/site_media/img/icon_f.png" /></a></li>
+    <li><a href="#"><img src="/site_media/img/icon_t.png" /></a></li>
+  </ul>
+</div>

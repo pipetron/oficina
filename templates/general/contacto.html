@@ -1,0 +1,64 @@
+{% extends "plantillas/principal.html" %}
+
+{% block estilos_adicionales %}
+  <link rel="stylesheet" type="text/css" href="/site_media/css/globales/contactos.css"/>
+{% endblock %}
+
+{% block javascript %}
+  <script type="text/javascript" src="/site_media/js/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript">
+    function igualar_altura(){
+    	//iguala alturas de parte izq. y derecha.
+    	var height_left = $("#contacto").height();
+    	var height_right = $("#como-llegar").height();
+    	var height_max = Math.max(height_left,height_right);
+    	
+    	$("#contacto").css('height',height_max+'px');
+    	$("#como-llegar").css('height',height_max+'px');
+    }
+ </script>
+{% endblock %}
+
+{% block contenido %}
+  <div id="banner">
+    <img src="/site_media/img/baner_inter_4.jpg" width="100%" height="175px"/>
+  </div>
+  <div id="titulo-seccion">Contacto</div>
+  <div id="contacto-llegar">
+    <div id="contacto">
+      <span class="titulo-contacto">Contacto</span>
+      <div id="info-contacto">
+        <p>Oficina de Turismo de Olvera</p>
+        <p>Plaza de la Iglesia, s/n - 11690 Olvera</p>
+        <p><b>Telf. 956 120816 | fax 956 120816</b></p>
+        <span>info@turismoolvera.com</span>
+      </div>
+      <div id="form-contacto">
+        {% if form_enviado %}
+          <p id="form-enviado">Formulario enviado correctamente, pronto nos pondremos en contacto con usted.</p>
+        {% endif %}
+        <form method="post">
+          {% csrf_token %}
+          {% for field in form %}
+            <div class="field-contacto-form">
+              {{ field.label_tag }}
+              {{ field }}
+              {% if field.errors %}
+                {{ field.errors }}
+              {% endif %}
+            </div>
+          {% endfor %}
+          <input type="submit" value="Enviar" id="enviar-contacto">
+        </form>
+      </div>
+    </div>
+    <div id="como-llegar">
+      <span class="titulo-contacto">C&oacute;mo llegar</span>
+      <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.es/maps?f=q&amp;source=s_q&amp;hl=es&amp;geocode=&amp;q=plaza+de+la+iglesia,+olvera&amp;aq=&amp;sll=36.934414,-5.269833&amp;sspn=0.004374,0.008401&amp;t=m&amp;ie=UTF8&amp;hq=&amp;hnear=Plaza+la+Iglesia,+11690+Olvera,+C%C3%A1diz&amp;ll=36.935374,-5.268044&amp;spn=0.017494,0.033603&amp;z=14&amp;output=embed"></iframe><br /><small><a href="https://maps.google.es/maps?f=q&amp;source=embed&amp;hl=es&amp;geocode=&amp;q=plaza+de+la+iglesia,+olvera&amp;aq=&amp;sll=36.934414,-5.269833&amp;sspn=0.004374,0.008401&amp;t=m&amp;ie=UTF8&amp;hq=&amp;hnear=Plaza+la+Iglesia,+11690+Olvera,+C%C3%A1diz&amp;ll=36.935374,-5.268044&amp;spn=0.017494,0.033603&amp;z=14" style="color:#0000FF;text-align:left">Ver mapa m&aacute;s grande</a></small>
+    </div>
+  </div>
+  <div id="titulo-oficina"><span>Oficina Municipal de Turismo Olvera</span></div>
+  <script>
+    igualar_altura();
+  </script>
+{% endblock %}

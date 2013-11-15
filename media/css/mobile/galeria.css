@@ -1,0 +1,19 @@
+.photo-gallery-detail ul{
+  padding:0 0 0 15px;
+}
+
+.photo-gallery-detail ul li{
+  list-style:none;
+  float:left;
+  width:32%;
+  margin-right:1%;
+}
+
+.photo-gallery-detail ul li a{
+	
+}
+
+.photo-gallery-detail ul li img{
+  width:100%;
+  border: 1px solid #3c3c3c;
+}

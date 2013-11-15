@@ -1,0 +1,109 @@
+{% extends "plantillas/principal.html" %}
+
+{% block estilos_adicionales %}
+  <link rel="stylesheet" type="text/css" href="/site_media/css/puntos_interes/puntos_interes.css"/>
+{% endblock %}
+
+{% block javascript %}
+  <script type="text/javascript" src="/site_media/js/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript">
+	      $(document).ajaxSend(function(event, xhr, settings) {
+	        function getCookie(name) {
+	            var cookieValue = null;
+	            if (document.cookie && document.cookie != '') {
+	                var cookies = document.cookie.split(';');
+	                for (var i = 0; i < cookies.length; i++) {
+	                    var cookie = jQuery.trim(cookies[i]);
+	                    // Does this cookie string begin with the name we want?
+	                    if (cookie.substring(0, name.length + 1) == (name + '=')) {
+	                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+	                        break;
+	                    }
+	                }
+	            }
+	            return cookieValue;
+	        }
+	        
+	        function sameOrigin(url) {
+	            // url could be relative or scheme relative or absolute
+	            var host = document.location.host; // host + port
+	            var protocol = document.location.protocol;
+	            var sr_origin = '//' + host;
+	            var origin = protocol + sr_origin;
+	            // Allow absolute or scheme relative URLs to same origin
+	            return (url == origin || url.slice(0, origin.length + 1) == origin + '/') ||
+	                (url == sr_origin || url.slice(0, sr_origin.length + 1) == sr_origin + '/') ||
+	                // or any other URL that isn't scheme relative or absolute i.e relative.
+	                !(/^(\/\/|http:|https:).*/.test(url));
+	        }
+	        
+	        function safeMethod(method) {
+	            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+	        }
+	
+	        if (!safeMethod(settings.type) && sameOrigin(settings.url)) {
+	            xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+	        }
+	   		 });
+  </script>
+  <script type="text/javascript">
+    function igualar_altura(){
+    	//iguala alturas de parte izq. y derecha.
+    	$("#olvera-detail-left").css('height','auto');
+    	$("#olvera-detail-right").css('height','auto');
+    	var height_left = $("#olvera-detail-left").height();
+    	var height_right = $("#olvera-detail-right").height();
+    	var height_max = Math.max(height_left,height_right);
+    	
+    	$("#olvera-detail-left").css('height',height_max+'px');
+    	$("#olvera-detail-right").css('height',height_max+'px');
+    	
+    }
+    
+    function inserta_imagen(){
+    	//inserta imagen de evento despues del segundo parrafo
+       	var img_element = "<img class='img-detail' src='" + "{{ obj.imagen.url }}" + "' />"
+       	var p_elements = $("#punto-interes-contenido").children("p").length;
+       	var index = 1;
+       	if (p_elements >= 2){
+       		index = 2;
+       	}
+       	
+       	var p_element = $("#punto-interes-contenido").children("p:nth-child("+index+")");
+       	p_element.addClass("p-img");
+       	p_element.after(img_element);
+    }
+    
+    $(document).ready(function(){
+    	$(".punto-interes").live('click',function(event){
+    		$('.punto-seleccionado').toggleClass('punto-seleccionado');
+    		$(this).toggleClass('punto-seleccionado');
+    		var id = $(this).attr('id').split('-')[1];
+    		var url = "/olvera/punto-interes/" + id + "/";
+    		$("#olvera-detail-left").load(url,{},function(){	
+    			igualar_altura();
+    		});
+    	});
+    });
+  </script>
+{% endblock %}
+
+{% block contenido %}
+  <div id="banner">
+    <img src="/site_media/img/baner_inter_3.jpg" width="100%" height="175px"/>
+  </div>
+  <div id="titulo-seccion">Olvera</div>
+  <div id="olvera-detail">
+    <div id="olvera-detail-left">
+      {% include "puntos_interes/contenido.html" %}
+    </div>
+    <div id="olvera-detail-right">
+      <span class="puntos-interes-titulo">Puntos de inter&eacute;s</span>
+      {% include "puntos_interes/puntos_interes.html" %}
+    </div>
+  </div>
+  <div id="titulo-oficina"><span>Oficina Municipal de Turismo Olvera</span></div>
+  <script>
+    setTimeout( igualar_altura, 100 );
+  </script>
+{% endblock %}

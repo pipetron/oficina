@@ -1,0 +1,29 @@
+{% extends "plantillas/principal.html" %}
+
+{% block estilos_adicionales %}
+  <link rel="stylesheet" type="text/css" href="/site_media/css/actividades/actividades.css"/>
+{% endblock %}
+
+{% block contenido %}
+  <div id="banner">
+    <img src="/site_media/img/baner_inter_1.jpg" width="100%" height="175px"/>
+  </div>
+  <div id="titulo-seccion">Actividades</div>
+  <div id="actividades">
+    {% for actividad in actividades_obj %}
+      <div class="actividad{% if forloop.counter|divisibleby:3 %} actividad-ultima{% endif %}">
+        <div class="titulo-actividad"><p>{{ actividad.titulo }}</p></div>
+        {% if actividad.imagen %}
+          <div class="img-actividad"><img src="{{ actividad.imagen.url }}" width="100%" height="120px"></div>
+        {% endif %}
+        <div class="info-actividad">
+          <div class="descripcion-actividad">
+            <p>{{ actividad.descripcion|truncatechars:100 }}</p>
+            <a href="{% url actividad_detail actividad.id %}">m&aacute;s info</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div id="titulo-oficina"><span>Oficina Municipal de Turismo Olvera</span></div>
+{% endblock %}

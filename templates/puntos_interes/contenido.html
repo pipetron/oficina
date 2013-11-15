@@ -1,0 +1,23 @@
+<div id="div-titulo-punto-interes">
+  <h3>{{ obj.titulo }}</h3>
+  {% if obj.descripcion %}
+    <p>{{ obj.descripcion }}</p>
+  {% endif %}
+</div>
+<div id="punto-interes-contenido">
+  {{ obj.contenido|safe }}
+</div>
+
+<script>
+    //inserta imagen de evento despues del segundo parrafo
+	var img_element = "<img class='img-detail' src='" + "{{ obj.imagen.url }}" + "' />"
+	var p_elements = $("#punto-interes-contenido").children("p").length;
+	var index = 1;
+	if (p_elements >= 2){
+		index = 2;
+	}
+	
+	var p_element = $("#punto-interes-contenido").children("p:nth-child("+index+")");
+	p_element.addClass("p-img");
+	p_element.after(img_element);
+</script>

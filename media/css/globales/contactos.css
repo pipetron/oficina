@@ -1,0 +1,142 @@
+#titulo-seccion{
+	background-color:white;
+	width:100%;
+	border-bottom:1px solid #ccc;
+	color:#ffb900;
+	padding:10px 0;
+	font-size:24px;
+	text-indent: 10px;
+}
+
+#titulo-oficina{
+	background-color:white;
+	width:100%;
+	color:black;
+	padding:15px 0;
+	font-size:15px;
+	text-align:right;
+	float:left;
+}
+
+#titulo-oficina span{
+	margin-right:10px;
+}
+
+#contacto-llegar{
+	background-color:white;
+	width:100%;
+	float:left;
+}
+
+#contacto,#como-llegar{
+	float:left;
+	width:50%;
+	box-shadow: 0px -7px 10px -4px #ccc inset;
+}
+
+.titulo-contacto{
+	background-image:url('/site_media/img/flecha_fiestas1.jpg');
+	background-position:left center;
+	background-repeat:no-repeat;
+	padding-left:30px;
+	margin-top:10px;
+	margin-bottom:10px;
+	margin-left:10px;
+	float:left;
+}
+
+#info-contacto{
+	float:left;
+	width:100%;
+}
+
+#info-contacto p{
+	font-size:13px;
+	margin:5px 0 5px 15px;
+}
+
+#info-contacto p b{
+	font-size:12px;
+}
+
+#info-contacto span{
+	font-size:13px;
+	font-weight:bold;
+	color:#ffb900;
+	margin-left:15px;
+}
+
+#form-contacto{
+	float:left;
+	width:100%;
+	margin:15px 0;
+}
+
+.field-contacto-form{
+	float:left;
+	clear:both;
+	width:100%;
+}
+
+.field-contacto-form label{
+	float:left;
+	clear:both;
+	margin:10px 0 5px 15px;
+	font-size:14px;
+}
+
+.field-contacto-form input, .field-contacto-form textarea{
+	float:left;
+	clear:both;
+	border:1px solid #ccc;
+	border-radius:3px;
+	margin-left:15px;
+	width:75%;
+}
+
+.field-contacto-form input{
+	height:20px;
+}
+
+#como-llegar iframe{
+	margin:15px 0 0 20px;
+}
+
+#como-llegar small a{
+	text-decoration:none;
+	color:black !important;
+	float:left;
+	margin:10px 0 20px 20px;
+	background-image:url('/site_media/img/flecha_amarilla.png');
+	background-position:left center;
+	background-repeat:no-repeat;
+	padding-left:7px;
+}
+
+#enviar-contacto{
+	background-color:black;
+	color:white;
+	border:1px solid black;
+	border-radius:3px;
+	float:right;
+	margin-top:20px;
+	margin-right:5%;
+	font-size:14px;
+	cursor:pointer;
+}
+
+.errorlist{
+	float:left;
+	margin:0 0 0 15px;
+	color:red;
+	font-size:10px;
+	list-style:none;
+	padding:0;
+}
+
+#form-enviado{
+	float:left;
+	margin:0 0 0 15px;
+	color:green;
+	font-size:13px;
+}

@@ -1,0 +1,33 @@
+{% extends "mobile/plantilla_mobile.html" %}
+
+{% block estilos %}
+  <link rel="stylesheet" href="/site_media/css/photoswipe/photoswipe.css" />
+  <link rel="stylesheet" href="/site_media/css/mobile/galeria.css" />
+{% endblock %}
+
+{% block javascript %}
+  <script type="text/javascript" src="/site_media/js/photoswipe/klass.min.js"></script>
+  <script type="text/javascript" src="/site_media/js/photoswipe/code.photoswipe.jquery-3.0.5.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+    	var myPhotoSwipe = $(".photo-gallery-detail ul li a").photoSwipe({ enableMouseWheel: false , enableKeyboard: false }); 
+    });
+  </script>
+{% endblock %}
+
+{% block back %}
+  <a href="#" class="ui-btn-left ui-btn ui-btn-icon-left ui-btn-corner-all ui-shadow ui-btn-down-a ui-btn-up-a" data-rel="back" data-icon="arrow-l" data-theme="a"><span class="ui-btn-inner ui-btn-corner-all" aria-hidden="true"><span class="ui-btn-text">Volver</span><span class="ui-icon ui-icon-arrow-l ui-icon-shadow"></span></span></a>
+{% endblock %}
+
+{% block contenido %}
+  <h2 class="titulo-galeria">{{ galeria.title }}</h2>
+
+{% if galeria.description %}<p class="descripcion-galeria">{{ galeria.description }}</p>{% endif %}
+<div class="photo-gallery-detail">
+  <ul>
+    {% for photo in galeria.public %}
+      <li><a href="{{ photo.image.url }}"><img src="{{ photo.get_thumbnail_url }}" alt="{{ photo.title }}"/></a></li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %} 

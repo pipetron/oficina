@@ -1,0 +1,9 @@
+<span class="proximas-fiestas-titulo">Pr&oacute;ximas Fiestas</span>
+{% for fiesta_p in proximas_fiestas %}
+  <div class="proxima-fiesta">
+    <span class="proxima-fiesta-titulo">{{ fiesta_p.titulo }}</span>
+    <p>{{ fiesta_p.descripcion }}</p>
+    <span class="proxima-fiesta-ambito"><b>&Aacute;mbito:</b> {{ fiesta_p.ambito }}</span>
+    <a href="{% url fiesta_detail fiesta_p.id %}">m&aacute;s info</a>
+  </div>
+{% endfor %}

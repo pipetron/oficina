@@ -1,0 +1,20 @@
+{% extends "photologue/root.html" %}
+{% load url from future %}
+
+{% block title %}Oficina de Turismo - Galer&iacute;a: {{ object.title }}{% endblock %}
+
+{% block content %}
+
+<h2 class="titulo-galeria">{{ object.title }}</h2>
+
+{% if object.description %}<p class="descripcion-galeria">{{ object.description }}</p>{% endif %}
+<div class="photo-gallery-detail">
+    {% for photo in object.public %}
+    <div class="gallery-photo">
+        <a href="{{ photo.image.url }}"><img src="{{ photo.get_thumbnail_url }}" class="{% block gallery-photo-class %}{% endblock %}" alt="{{ photo.title }}"/></a>
+    </div>
+    {% endfor %}
+</div>
+<p class="volver-galerias"><a href="{% url 'pl-photologue-root' %}">Ver todas las galer&iacute;as</a></p>
+
+{% endblock %}

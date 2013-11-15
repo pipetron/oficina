@@ -1,0 +1,13 @@
+{% extends "mobile/plantilla_mobile.html" %}
+
+{% block contenido %}
+  <img src="{{ banner.img_es.url }}" width="100%">
+  <div data-role="collapsible" data-theme="e" data-content-theme="c">
+    <h2>Documentos de inter&eacute;s</h2>
+    <ul data-role="listview">
+      {% for documento in documentos %}
+        <li><a href="{% url descargar_documento documento.id %}" target="_blank">{{ documento.titulo }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

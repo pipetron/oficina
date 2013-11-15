@@ -1,0 +1,114 @@
+#titulo-seccion{
+	background-color:white;
+	width:100%;
+	border-bottom:1px solid #ccc;
+	color:#ffb900;
+	padding:10px 0;
+	font-size:24px;
+	text-indent: 10px;
+}
+
+#titulo-oficina{
+	background-color:white;
+	width:100%;
+	color:black;
+	padding:15px 0;
+	font-size:15px;
+	text-align:right;
+	float:left;
+}
+
+#titulo-oficina span{
+	margin-right:10px;
+}
+
+#eventos{
+	background-color:white;
+	width:100%;
+	float:left;
+}
+
+.evento{
+	width:33%;
+	min-height:200px;
+	border-right:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+	float:left;
+}
+
+.evento-ultimo{
+	width:33.8%;
+	border-right:none !important;
+}
+
+.evento .titulo-evento{
+	overflow:auto;
+}
+
+.evento .titulo-evento p{
+	background-image:url('/site_media/img/flecha_fiestas1.jpg');
+	background-position:left center;
+	background-repeat:no-repeat;
+	padding-left:27px;
+	line-height:23px;
+	height:23px;
+	margin-left:10px;
+	color:black;
+	font-size:13px;
+}
+
+.descripcion-evento{
+	float:left;
+	width:75%;
+	margin-bottom:10px;
+}
+
+.descripcion-evento a{
+	color:black;
+	text-decoration:none;
+	font-size:12px;
+	font-weight:bold;
+	background-image:url('/site_media/img/flecha_amarilla.png');
+	background-position:left center;
+	background-repeat:no-repeat;
+	padding-left:7px;
+	margin-left:10px;
+}
+
+.descripcion-evento p{
+	font-size:12px;
+	color:#333;
+	padding-right:5px;
+	padding-left:10px;
+	margin-bottom:2px;
+}
+
+.fecha-evento{
+	float:left;
+	width:22%;
+}
+
+.fecha-widget{
+	float:left;
+	width:70%;
+	margin-top:10px;
+	margin-left:21%;
+	height:50px;
+	background-color:#ffb900;
+	color:white;
+	border-radius:5px;
+}
+
+.dia-evento{
+	width:100%;
+	text-align:center;
+	font-size:22px;
+	float:left;
+}
+
+.mes-evento{
+	width:100%;
+	text-align:center;
+	font-size:16px;
+	float:left;
+}
